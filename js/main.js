@@ -29,25 +29,6 @@ function handleSubmit(event) {
 }
 $dateForm.addEventListener('submit', handleSubmit);
 
-// function getApod() {
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('GET', fullQuery);
-//   xhr.responseType = 'json';
-//   xhr.addEventListener('load', function () {
-//     var apod = xhr.response;
-//     if (apodDate === apod.date) {
-//       $date.textContent = apod.date;
-//     } else if (apodDate !== apod.date) {
-//       $date.textContent = apodDate;
-//     }
-//     $title.textContent = apod.title;
-//     $image.setAttribute('src', apod.hdurl);
-//     $explanation.textContent = apod.explanation;
-//   });
-//   xhr.send();
-// }
-// getApod();
-
 var $button = document.querySelector('.cta');
 var $home = document.querySelector('.view');
 var $entries = document.querySelector('.entries');
@@ -74,12 +55,6 @@ function swapViews() {
     $home.className = 'home-page';
   }
 }
-
-// function swapViewToEntries(event) {
-//   data.view = 'entries';
-//   swapViews();
-// }
-// $headerEntries.addEventListener('click', swapViewToEntries);
 
 function swapViewToHome(event) {
   data.view = 'home-page';
