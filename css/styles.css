@@ -1,0 +1,129 @@
+.header-background {
+  background-color: black;
+}
+
+.header-text {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  margin-right: 20px;
+}
+
+.logo {
+  width: 100px;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+a {
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+.header-entries {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.main-background {
+  background-color: black;
+}
+
+.hero-image {
+  width: 100%;
+}
+
+.hero-text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 3rem;
+  color: white;
+}
+
+.center-page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cta {
+  margin-top: 5%;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.apod-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+.calendar {
+  color: black;
+  border-width: 1px;
+  border-radius: 50px;
+  padding: 5px 50px;
+  background-color: lightgray;
+}
+
+.date-submit {
+  background-color: lightgray;
+  color: black;
+  border-radius: 50px;
+  padding: 5px 10px;
+  border-width: 1px;
+}
+
+.pos-elements-left {
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pos-elements-center {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.text-content-padding {
+  padding: 0 5%;
+}
+
+.image {
+  max-width: 100%;
+}
+
+.date-picker {
+  margin-top: 5%;
+}
+
+.margin-bottom {
+  margin-bottom: 1%;
+}
+
+* {
+  color: white;
+}
