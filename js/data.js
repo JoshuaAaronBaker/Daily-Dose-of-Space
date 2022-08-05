@@ -1,7 +1,7 @@
 /* exported data */
 var data = {
   view: 'home-page',
-  entries: [],
+  savedImages: [],
   nextEntryId: 1
 };
 
