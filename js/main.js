@@ -9,22 +9,22 @@ var $explanation = document.querySelector('.explanation');
 var $dateForm = document.querySelector('.date-selected');
 var $selectedDate = document.querySelector('#date');
 var $button = document.querySelector('.cta');
-var $home = document.querySelector('.view');
-var $entries = document.querySelector('.entries');
 var $navHome = document.querySelector('.header-home');
 var $calendar = document.querySelector('.calendar');
 var $video = document.querySelector('.video');
 var $saveButton = document.getElementById('save-button');
-
-function handleNavHomeClick(event) {
-  data.view = 'home-page';
-  swapViews();
-}
-$navHome.addEventListener('click', handleNavHomeClick(event));
+var $view = document.querySelectorAll('.view');
+var $domRow = document.querySelector('.dom-row');
+var $favorites = document.querySelector('.header-favs');
+var $modalDate = document.querySelector('.modal-date');
+var $modalImage = document.querySelector('.modal-image');
+var $modalTitle = document.querySelector('.modal-title');
+var $modalExplanation = document.querySelector('.modal-explanation');
+var $closeButton = document.getElementById('close-button');
 
 function handleClick(event) {
   data.view = 'entries';
-  swapViews();
+  viewSwap('entries');
 
   function getApodCurrent() {
     var xhr = new XMLHttpRequest();
@@ -94,22 +94,89 @@ function saveInfo(event) {
       return null;
     }
   }
+  var $colThird = document.createElement('div');
+  $colThird.setAttribute('class', 'column-third');
+  var $frame = document.createElement('div');
+
+  $frame.setAttribute('class', 'frame');
+  $colThird.appendChild($frame);
+
+  var $savedImage = document.createElement('img');
+  $savedImage.setAttribute('src', dataOnScreen.image);
+  $savedImage.setAttribute('class', 'saved-image');
+  $frame.appendChild($savedImage);
+
+  dataOnScreen.imageId = data.nextEntryId;
+  data.nextEntryId++;
+  $domRow.prepend($colThird);
   data.savedImages.unshift(dataOnScreen);
+  swapToFavs(event);
 }
 $saveButton.addEventListener('click', saveInfo);
 
-function swapViews() {
-  if (data.view === 'entries') {
-    $entries.className = 'entries';
-    $home.className = 'hidden';
-  } else if (data.view === 'home-page') {
-    $entries.className = 'hidden';
-    $home.className = 'home-page';
+function swapToFavs(event) {
+  data.view = 'saved-images';
+  viewSwap('saved-images');
+}
+$favorites.addEventListener('click', swapToFavs);
+
+function handleDomContent(event) {
+  for (var i = 0; i < data.savedImages.length; i++) {
+
+    var $colThird = document.createElement('div');
+    $colThird.setAttribute('class', 'column-third');
+    var $frame = document.createElement('div');
+
+    $frame.setAttribute('class', 'frame');
+    $colThird.appendChild($frame);
+
+    var $savedImage = document.createElement('img');
+    $savedImage.setAttribute('src', data.savedImages[i].image);
+    $savedImage.setAttribute('class', 'saved-image');
+    $frame.appendChild($savedImage);
+
+    $domRow.append($colThird);
   }
 }
+window.addEventListener('DOMContentLoaded', handleDomContent);
 
+function showFullInfo(event) {
+  for (var i = 0; i < data.savedImages.length; i++) {
+    if (event.target.getAttribute('src') === data.savedImages[i].image) {
+      $modalDate.textContent = data.savedImages[i].date;
+      $modalImage.setAttribute('src', data.savedImages[i].image);
+      $modalTitle.textContent = data.savedImages[i].title;
+      $modalExplanation.textContent = data.savedImages[i].explanation;
+      viewModal(event);
+    }
+  }
+  return null;
+
+}
+$domRow.addEventListener('click', showFullInfo);
+
+function closeModal(event) {
+  data.view = 'saved-images';
+  swapToFavs(event);
+}
+$closeButton.addEventListener('click', closeModal);
+
+function viewModal(event) {
+  data.view = 'modal-view';
+  viewSwap('modal-view');
+}
+
+function viewSwap(event) {
+  for (var i = 0; i < $view.length; i++) {
+    if (event === $view[i].getAttribute('data-view')) {
+      $view[i].className = 'view';
+    } else {
+      $view[i].className = 'view hidden';
+    }
+  }
+}
 function swapViewToHome(event) {
   data.view = 'home-page';
-  swapViews();
+  viewSwap('home-page');
 }
 $navHome.addEventListener('click', swapViewToHome);

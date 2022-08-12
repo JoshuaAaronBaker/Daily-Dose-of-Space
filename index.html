@@ -16,8 +16,9 @@
     <div class="container">
       <div class="row">
         <div class="column-full align-items-center space-between">
-          <a href="#" data-link="home-page" class="header-home">Daily Dose of<br>Space</a>
+          <a href="#" data-link="home-page" class="header-home"><img class="logo" src="images/nasa-logo-web-rgb.png" alt=""></a>
           <nav class="tabs">
+            <a href="#" data-link="saved-images" class="header-favs">Favorites</a>
           </nav>
         </div>
       </div>
@@ -35,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div data-view="entries" class="entries hidden">
+      <div data-view="entries" class="view hidden">
         <div class="row apod-font">
           <div class="column-full date-picker pos-elements-center">
             <form action="" class="date-selected">
@@ -66,6 +67,43 @@
               <div class="row center-button">
                 <button type="submit" id="save-button">Save</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="view hidden" data-view="saved-images">
+        <div class="row">
+          <div class="column-full text-align-center">
+            <h1>Saved Images</h1>
+          </div>
+        </div>
+        <div class="row dom-row">
+        </div>
+      </div>
+    </div>
+    <div data-view="modal-view" id="toggle-modal" class="view hidden">
+      <div class="modal">
+        <div class="pop-up">
+        </div>
+        <div class="row pos-elements">
+          <div class="column-full">
+            <div class="row">
+              <div class="column-half">
+                <img class="modal-image" src="">
+                <iframe class="modal-video hidden" src=""></iframe>
+              </div>
+              <div class="column-half text-content-padding modal-content-margin">
+                <div>
+                  <h2 class="modal-date"></h2>
+                  <h1 class="modal-title"></h1>
+                </div>
+                <div>
+                  <p class="modal-explanation"></p>
+                </div>
+              </div>
+            </div>
+            <div class="row center-button">
+              <button id="close-button">Close</button>
             </div>
           </div>
         </div>

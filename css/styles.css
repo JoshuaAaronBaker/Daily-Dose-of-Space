@@ -150,6 +150,73 @@ a:visited {
   justify-content: center;
 }
 
+.text-align-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.spacing {
+  justify-content: space-between;
+}
+
+.frame {
+  margin: 5%;
+}
+
+.saved-image {
+  max-width: 100%;
+  height: 280px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0 0 0 /68%);
+}
+
+.pop-up {
+  background-color: black;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  font-size: 10px;
+}
+
+.modal-content-margin {
+  margin-top: 15%;
+}
+
+.modal-image {
+  margin-top: 15%;
+  max-width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#close-button {
+  border-radius: 50px;
+  border: 1px solid;
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  border-color: white;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  cursor: pointer;
+}
+
 * {
   color: white;
 }
