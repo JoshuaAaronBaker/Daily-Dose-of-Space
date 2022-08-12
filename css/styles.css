@@ -198,11 +198,21 @@ a:visited {
   margin-top: 15%;
 }
 
+.justify-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .modal-image {
   margin-top: 15%;
-  max-width: 100%;
+  max-width: 80%;
   object-fit: cover;
   cursor: pointer;
+}
+
+.flex-end {
+  justify-content: flex-end;
 }
 
 #close-button {
@@ -214,9 +224,11 @@ a:visited {
   border-color: white;
   margin-top: 5%;
   margin-bottom: 10%;
+  margin-right: 8%;
   cursor: pointer;
 }
 
 * {
   color: white;
+  font-family: "Open Sans", sans-serif;
 }
