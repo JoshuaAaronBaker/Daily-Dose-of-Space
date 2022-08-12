@@ -14,7 +14,8 @@
 }
 
 .column-full,
-.column-half {
+.column-half,
+.column-third {
   width: 100%;
 }
 
@@ -30,5 +31,9 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .column-third {
+    flex-basis: calc(100% / 3);
   }
 }
