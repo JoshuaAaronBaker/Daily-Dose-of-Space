@@ -228,6 +228,19 @@ a:visited {
   cursor: pointer;
 }
 
+.remove-button {
+  border-radius: 50px;
+  border: 1px solid;
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  border-color: white;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  margin-left: 8%;
+  cursor: pointer;
+}
+
 * {
   color: white;
   font-family: "Open Sans", sans-serif;

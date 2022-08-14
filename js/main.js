@@ -21,6 +21,7 @@ var $modalImage = document.querySelector('.modal-image');
 var $modalTitle = document.querySelector('.modal-title');
 var $modalExplanation = document.querySelector('.modal-explanation');
 var $closeButton = document.getElementById('close-button');
+var $removeButton = document.querySelector('.remove-button');
 
 function handleClick(event) {
   data.view = 'entries';
@@ -143,6 +144,7 @@ window.addEventListener('DOMContentLoaded', handleDomContent);
 function showFullInfo(event) {
   for (var i = 0; i < data.savedImages.length; i++) {
     if (event.target.getAttribute('src') === data.savedImages[i].image) {
+      data.currentImage = data.savedImages[i];
       $modalDate.textContent = data.savedImages[i].date;
       $modalImage.setAttribute('src', data.savedImages[i].image);
       $modalTitle.textContent = data.savedImages[i].title;
@@ -154,6 +156,19 @@ function showFullInfo(event) {
 
 }
 $domRow.addEventListener('click', showFullInfo);
+
+function removeData(event) {
+  if (event.target.className === 'remove-button') {
+    for (var i = 0; i < data.savedImages.length; i++) {
+      if (data.currentImage === data.savedImages[i]) {
+        data.savedImages.splice(i, 1);
+        $domRow.children[i].remove();
+        closeModal(event);
+      }
+    }
+  }
+}
+$removeButton.addEventListener('click', removeData);
 
 function closeModal(event) {
   data.view = 'saved-images';

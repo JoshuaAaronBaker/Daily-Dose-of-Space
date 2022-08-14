@@ -2,7 +2,8 @@
 var data = {
   view: 'home-page',
   savedImages: [],
-  nextEntryId: 1
+  nextEntryId: 1,
+  theme: false
 };
 
 var previousDataJson = localStorage.getItem('ajax-local-storage');
