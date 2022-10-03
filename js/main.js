@@ -21,6 +21,7 @@ var $modalImage = document.querySelector('.modal-image');
 var $modalTitle = document.querySelector('.modal-title');
 var $modalExplanation = document.querySelector('.modal-explanation');
 var $closeButton = document.getElementById('close-button');
+var $spinner = document.querySelector('.lds-spinner');
 
 function handleClick(event) {
   data.view = 'entries';
@@ -32,6 +33,7 @@ function handleClick(event) {
     xhr.responseType = 'json';
     xhr.addEventListener('load', function () {
       var apod = xhr.response;
+      $spinner.className = 'lds-spinner';
       $calendar.value = apod.date;
       $date.textContent = apod.date;
       $title.textContent = apod.title;
@@ -61,6 +63,7 @@ function handleSubmit(event) {
     xhr.responseType = 'json';
     xhr.addEventListener('load', function () {
       var apod = xhr.response;
+      $spinner.className = 'lds-spinner';
       $date.textContent = submitDate;
       $title.textContent = apod.title;
       if (apod.media_type === 'image') {
