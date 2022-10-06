@@ -21,6 +21,8 @@ var $modalImage = document.querySelector('.modal-image');
 var $modalTitle = document.querySelector('.modal-title');
 var $modalExplanation = document.querySelector('.modal-explanation');
 var $closeButton = document.getElementById('close-button');
+var $spinner = document.querySelector('.lds-spinner');
+var $empty = document.getElementById('empty');
 var $removeButton = document.querySelector('.remove-button');
 
 function handleClick(event) {
@@ -33,7 +35,12 @@ function handleClick(event) {
     xhr.responseType = 'json';
     xhr.addEventListener('load', function () {
       var apod = xhr.response;
+      if (xhr.status !== 200) {
+        window.alert('Sorry a connection error occured, please try again.');
+        return;
+      }
       $calendar.value = apod.date;
+      $spinner.className = 'lds-spinner';
       $date.textContent = apod.date;
       $title.textContent = apod.title;
       if (apod.media_type === 'image') {
@@ -45,6 +52,7 @@ function handleClick(event) {
         $video.setAttribute('src', apod.url);
       }
       $explanation.textContent = apod.explanation;
+      $spinner.className = 'lds-spinner hidden';
       $saveButton.className = 'save-button';
     });
     xhr.send();
@@ -62,8 +70,14 @@ function handleSubmit(event) {
     xhr.responseType = 'json';
     xhr.addEventListener('load', function () {
       var apod = xhr.response;
+      if (xhr.status !== 200) {
+        window.alert('Sorry a connection error occured, please try again.');
+        return;
+      }
       $date.textContent = submitDate;
       $title.textContent = apod.title;
+      $spinner.className = 'lds-spinner';
+      $image.setAttribute('src', '');
       if (apod.media_type === 'image') {
         $video.setAttribute('src', '');
         $image.setAttribute('src', apod.hdurl);
@@ -74,6 +88,7 @@ function handleSubmit(event) {
         $video.setAttribute('src', apod.url);
       }
       $explanation.textContent = apod.explanation;
+      $spinner.className = 'lds-spinner hidden';
       $saveButton.className = 'save-button';
     });
     xhr.send();
@@ -111,6 +126,7 @@ function saveInfo(event) {
   data.nextEntryId++;
   $domRow.prepend($colThird);
   data.savedImages.unshift(dataOnScreen);
+  $empty.setAttribute('class', 'row text-align-center hidden');
   swapToFavs(event);
 }
 $saveButton.addEventListener('click', saveInfo);
@@ -123,6 +139,10 @@ $favorites.addEventListener('click', swapToFavs);
 
 function handleDomContent(event) {
   for (var i = 0; i < data.savedImages.length; i++) {
+
+    if (data.savedImages.length > 0) {
+      $empty.setAttribute('class', 'row text-align-center hidden');
+    }
 
     var $colThird = document.createElement('div');
     $colThird.setAttribute('class', 'column-third');
