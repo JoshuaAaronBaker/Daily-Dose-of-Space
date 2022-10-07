@@ -10,7 +10,7 @@ exposed to new peices of information, which becomes the springboard for further 
 
 ## Live Demo
 
-Try the application live at [https://joshuaaaronbaker.github.io/Daily-Dose-of-Space/]
+Try the application live at [https://joshuaaaronbaker.github.io/Daily-Dose-of-Space/](https://joshuaaaronbaker.github.io/Daily-Dose-of-Space/)
 
 ## Technologies Used
 
@@ -18,7 +18,7 @@ Try the application live at [https://joshuaaaronbaker.github.io/Daily-Dose-of-Sp
 - CSS
 - JavaScript
 - HTTPIE
-- NASA Astronomy Picture of the Day API [https://github.com/nasa/apod-api]
+- [NASA Astronomy Picture of the Day API](https://github.com/nasa/apod-api)
 
 ## Features
 - User can access calendar view, in order to choose a date.
